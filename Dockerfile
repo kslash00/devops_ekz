@@ -6,17 +6,3 @@ WORKDIR /web/
 EXPOSE 1234
 ENTRYPOINT ["python", "-m", "flask", "run", "--host=0.0.0.0"]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
