@@ -21,7 +21,7 @@ metadata = MetaData(naming_convention=convention)
 db = SQLAlchemy(app, metadata=metadata)
 migrate = Migrate(app, db)
 
-from models import Product, Orders
+from models import Worker, Event
 from auth import bp as auth_bp, init_login_manager, check_rights
 
 
@@ -29,14 +29,21 @@ from auth import bp as auth_bp, init_login_manager, check_rights
 init_login_manager(app)
 app.register_blueprint(auth_bp)
     
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def index():
-    products = Product.query.all()
-    return render_template("index.html", products = products)
+    if request.method == 'POST':
+        year = request.form.get('year')
+        if year:
+            events = Event.query.filter_by(year=year).all()
+            if events:
+                return render_template('events.html', events=events)
+            flash('Событий в этом году не было','danger')
+    return render_template('index.html')
 
 @app.route('/order')
 def order():
-    return render_template("order.html", current_user=current_user)
+    workers = Worker.query.all()
+    return render_template("order.html", workers=workers)
 
 
 

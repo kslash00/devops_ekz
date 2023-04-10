@@ -1,5 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p>Ваш заказ {{current_user.prod_in_order}} в колличестве {{current_user.count}} штук</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col"># сотрудника</th>
+        <th scope="col">Имя работника</th>
+        <th scope="col">Статус</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {%for worker in workers%}
+    <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{worker.login}}</td>
+        <td>{{worker.status}}</td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+
 {% endblock  %}

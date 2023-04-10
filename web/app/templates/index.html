@@ -2,26 +2,13 @@
 
 {% block content %}
 
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col"># товара</th>
-        <th scope="col">Наименование</th>
-        <th scope="col">Цена</th>
-        <th scope="col">Описание</th>
+<form class="container-fluid mt-5"method="POST" style="max-width: 20rem;">
+    <div class="form-floating mb-3">
+        <input autocomplete="off" type="text" class="form-control" name="year" id="year" placeholder="year" value="{{ request.form.year }}" required>
+        <label for="year">year</label>
+    </div>
 
-    </tr>
-    </thead>
-    <tbody>
-    {%for product in products%}
-    <tr>
-        <th scope="row">{{loop.index}}</th>
-        <td>{{product.name_product}}</td>
-        <td>{{product.price}}</td>
-        <td>{{product.desc}}</td>
-    </tr>
-    {%endfor%}
-    </tbody>
-</table>
+    <button class="btn btn-primary w-100" type="submit">Посмотреть</button>
+</form>
 
 {% endblock %}
