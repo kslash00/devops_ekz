@@ -14,7 +14,7 @@
             {% if title%}
             {{ title }}
             {% else %}
-            Скачки
+            Городская администрация
             {% endif %}
         </title>
 </head>
@@ -43,7 +43,7 @@
                     <ul class="navbar-nav ms-auto pe-10 ">
                         {% if current_user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link {% if request.endpoint == 'order' %}active{% endif %}" href="{{url_for('order')}}">Оформленный заказ</a>
+                            <a class="nav-link {% if request.endpoint == 'order' %}active{% endif %}" href="{{url_for('order')}}">Сотрудники</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -78,11 +78,6 @@
         </div>
     </main>
     
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container text-center">
-            <span class="text-muted">ОАО «Рязань Интернешнл»</span>
-        </div>
-    </footer>
 
     <!-- Optional JavaScript; choose one of the two! -->
     

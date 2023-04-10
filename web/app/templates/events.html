@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col"># машины</th>
+        <th scope="col">Год события</th>
+        <th scope="col">День события</th>
+        <th scope="col">Описание</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {%for event in events%}
+    <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{event.year}}</td>
+        <td>{{event.day}}</td>
+        <td>{{event.desc}}</td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+
+{% endblock %}
